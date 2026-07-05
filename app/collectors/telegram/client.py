@@ -1,29 +1,28 @@
 import os
 import re
+import yaml
+
 from dotenv import load_dotenv
 from telethon import TelegramClient
 
 load_dotenv()
 
+with open("config/settings.yaml", "r") as f:
+    settings = yaml.safe_load(f)
+
 API_ID = int(os.getenv("TELEGRAM_API_ID"))
 API_HASH = os.getenv("TELEGRAM_API_HASH")
 
 SESSION_NAME = "insighthub_session"
-TARGET_CHANNEL = "ChartBankGlobal"
 
-client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
+TARGET_CHANNEL = settings["telegram"]["channels"][0]
+MESSAGE_LIMIT = settings["collector"]["message_limit"]
 
-# -----------------------------
-# Simple tag filter logic
-# -----------------------------
-INCLUDE_TAGS = {
-    "Freshview",
-    "Update",
-    "Partbooking",
-    "Takeoutcapital"
-}
+INCLUDE_TAGS = set(settings["filters"]["include_tags"])
 
 TAG_PATTERN = re.compile(r"#(\w+)")
+
+client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
 
 
 def extract_tags(text):
@@ -37,17 +36,16 @@ def is_relevant(tags):
 
 
 async def main():
-    print("Connecting to Telegram...")
-
     await client.start()
-
-    print("Connected.\n")
 
     channel = await client.get_entity(TARGET_CHANNEL)
 
-    messages = await client.get_messages(channel, limit=50)
+    messages = await client.get_messages(
+        channel,
+        limit=MESSAGE_LIMIT,
+    )
 
-    print(f"Scanning {len(messages)} messages...\n")
+    print(f"\nReading channel: {TARGET_CHANNEL}\n")
 
     for msg in reversed(messages):
         text = msg.message
@@ -60,10 +58,10 @@ async def main():
         if not is_relevant(tags):
             continue
 
-        print("--------------------------------------------------")
-        print(f"Date: {msg.date}")
-        print(f"Tags: {tags}")
-        print(f"Text:\n{text}\n")
+        print("-" * 80)
+        print(msg.date)
+        print(tags)
+        print(text)
 
 
 with client:

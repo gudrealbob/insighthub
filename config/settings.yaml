@@ -1,0 +1,13 @@
+telegram:
+  channels:
+    - ChartBankGlobal
+
+filters:
+  include_tags:
+    - Freshview
+    - Update
+    - Partbooking
+    - Takeoutcapital
+
+collector:
+  message_limit: 50
