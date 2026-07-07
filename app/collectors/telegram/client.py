@@ -2,6 +2,9 @@ import os
 import re
 import yaml
 
+from app.db.database import SessionLocal
+from app.services.message_service import save_message
+from app.services.recommendation_service import save_recommendation
 from dotenv import load_dotenv
 from telethon import TelegramClient
 
@@ -15,7 +18,7 @@ API_HASH = os.getenv("TELEGRAM_API_HASH")
 
 SESSION_NAME = "insighthub_session"
 
-TARGET_CHANNEL = settings["telegram"]["channels"][0]
+TARGET_CHANNELS = settings["telegram"]["channels"]
 MESSAGE_LIMIT = settings["collector"]["message_limit"]
 
 INCLUDE_TAGS = set(settings["filters"]["include_tags"])
@@ -38,14 +41,21 @@ def is_relevant(tags):
 async def main():
     await client.start()
 
-    channel = await client.get_entity(TARGET_CHANNEL)
+    for channel_cfg in TARGET_CHANNELS:
+
+    channel = await client.get_entity(
+        channel_cfg["channel_name"]
+    )
+
+    print(
+        f"\nReading channel: "
+        f"{channel_cfg['display_name']}\n"
+    )
 
     messages = await client.get_messages(
         channel,
         limit=MESSAGE_LIMIT,
     )
-
-    print(f"\nReading channel: {TARGET_CHANNEL}\n")
 
     for msg in reversed(messages):
         text = msg.message
@@ -58,10 +68,21 @@ async def main():
         if not is_relevant(tags):
             continue
 
-        print("-" * 80)
-        print(msg.date)
-        print(tags)
-        print(text)
+        db = SessionLocal()
+        source = get_source_by_name(db, "telegram")
+        try:
+            message = save_message(
+                db=db,
+                source_id=source.id,      
+                telegram_message=msg,
+                tags=tags,
+            )
+
+            print(f"Saved message {message.id}")
+            save_recommendation(db, message)
+
+        finally:
+            db.close()
 
 
 with client:

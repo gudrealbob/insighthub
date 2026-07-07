@@ -1,6 +1,13 @@
 telegram:
   channels:
-    - ChartBankGlobal
+    - channel_name: chartbankglobal
+      display_name: ChartBank Global
+
+    - channel_name: chartbankmv
+      display_name: ChartBank MV
+
+    - channel_name: chartbankcommodity
+      display_name: ChartBank Commodity
 
 filters:
   include_tags:
