@@ -17,4 +17,5 @@ filters:
     - Takeoutcapital
 
 collector:
-  message_limit: 50
+  mode: historical
+  message_limit: 100

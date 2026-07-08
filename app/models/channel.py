@@ -1,3 +1,4 @@
+from __future__ import annotations
 from datetime import datetime
 
 from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, Integer, String, func
@@ -36,6 +37,16 @@ class Channel(Base):
     is_active: Mapped[bool] = mapped_column(
         Boolean,
         default=True
+    )
+
+    last_message_id: Mapped[int | None] = mapped_column(
+    BigInteger,
+    nullable=True
+    )
+
+    last_message_date: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True
     )
 
     created_at: Mapped[datetime] = mapped_column(

@@ -9,9 +9,12 @@ from alembic import context
 
 from app.models.base import Base
 from app.models.source import Source   # noqa: F401  (registers model with Base.metadata)
+from app.models.channel import Channel
 from app.models.message import Message  # noqa: F401  (registers model with Base.metadata)
 from app.models.recommendation import Recommendation
-from app.models.channel import Channel
+
+
+# from app.models import Base, Source, Channel, Message, Recommendation
 
 # ---------------------------------------------------------------------------
 # Environment setup

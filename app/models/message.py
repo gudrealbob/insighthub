@@ -1,5 +1,6 @@
+from __future__ import annotations
 from datetime import datetime
-from sqlalchemy import DateTime, ForeignKey, Integer, JSON, Text, func
+from sqlalchemy import DateTime, ForeignKey, Integer, JSON, Text, func, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
@@ -26,4 +27,11 @@ class Message(Base):
         DateTime(timezone=True),
         server_default=func.now(),
         onupdate=func.now()
+    )
+    __table_args__ = (
+    UniqueConstraint(
+        "channel_id",
+        "external_message_id",
+        name="uq_message_channel_external_id"
+    ),
     )

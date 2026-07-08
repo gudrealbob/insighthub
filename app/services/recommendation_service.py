@@ -1,32 +1,58 @@
-from sqlalchemy.orm import Session
-
-from app.models.recommendation import Recommendation
 from app.services.parser import parse_recommendation
+from app.models.recommendation import Recommendation
 
 
-def save_recommendation(db: Session, message):
-    """
-    message is a Messages model instance from Sprint 1.
-    """
+def save_recommendation(db, message):
 
-    parsed = parse_recommendation(message.raw_text)
+    parsed = parse_recommendation(message.message_text)
+
+    #
+    # No recommendation detected
+    #
+    if not parsed:
+        return None
+
+
+    #
+    # Ignore empty parser results
+    #
+    if not any(parsed.values()):
+        return None
+
+
+    #
+    # Prevent duplicate recommendation creation
+    #
+    existing = (
+        db.query(Recommendation)
+        .filter(
+            Recommendation.message_id == message.id
+        )
+        .first()
+    )
+
+    if existing:
+        return existing
+
 
     recommendation = Recommendation(
         message_id=message.id,
-        symbol=parsed["symbol"],
-        action=parsed["action"],
-        entry_low=parsed["entry_low"],
-        entry_high=parsed["entry_high"],
-        stop_loss=parsed["stop_loss"],
-        target1=parsed["target1"],
-        target2=parsed["target2"],
-        target3=parsed["target3"],
-        pattern=parsed["pattern"],
-        risk=parsed["risk"],
+        symbol=parsed.get("symbol"),
+        action=parsed.get("action"),
+        entry_low=parsed.get("entry_low"),
+        entry_high=parsed.get("entry_high"),
+        stop_loss=parsed.get("stop_loss"),
+        target1=parsed.get("target1"),
+        target2=parsed.get("target2"),
+        target3=parsed.get("target3"),
+        pattern=parsed.get("pattern"),
+        risk=parsed.get("risk"),
     )
+
 
     db.add(recommendation)
     db.commit()
     db.refresh(recommendation)
+
 
     return recommendation
