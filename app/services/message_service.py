@@ -2,6 +2,7 @@ import json
 
 from sqlalchemy.orm import Session
 from app.models.message import Message
+from app.services.normalization_service import normalize_message
 
 
 def json_serializable(obj):
@@ -51,5 +52,6 @@ def save_message(
     db.add(message)
     db.commit()
     db.refresh(message)
-
+    normalize_message(db, message)
+    
     return message
