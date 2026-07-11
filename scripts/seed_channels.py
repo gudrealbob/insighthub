@@ -1,3 +1,5 @@
+import _bootstrap  # noqa: F401
+
 from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal

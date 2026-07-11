@@ -1,0 +1,5 @@
+symbol,price_date,open_price,high_price,low_price,close_price,adjusted_close_price,volume,currency,exchange,instrument_type,interval,source
+AAPL,2026-07-08,211.00,216.00,209.00,215.00,215.00,76000000,USD,NASDAQ,stock,1d,manual_csv
+AAPL,2026-07-09,215.00,218.25,214.10,217.75,217.75,69000000,USD,NASDAQ,stock,1d,manual_csv
+MSFT,2026-07-08,480.00,488.50,478.00,486.20,486.20,31000000,USD,NASDAQ,stock,1d,manual_csv
+MSFT,2026-07-09,486.20,490.00,482.75,488.90,488.90,29500000,USD,NASDAQ,stock,1d,manual_csv

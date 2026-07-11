@@ -3,15 +3,6 @@ import re
 from app.models.normalized_message import NormalizedMessage
 
 
-CRYPTO_SYMBOLS = {
-    "BTC",
-    "ETH",
-    "SOL",
-    "BNB",
-    "XRP",
-}
-
-
 ACTION_MAP = {
     "BUY": "BUY",
     "LONG": "BUY",
@@ -31,10 +22,76 @@ def normalize_text(text: str | None) -> str:
     for line in text.split("\n"):
         line = re.sub(r"\s+", " ", line).strip()
 
+        if not line:
+            continue
+
+        if line.startswith("#"):
+            continue
+
+        line = re.sub(r"#\w+", "", line).strip()
+
         if line:
             lines.append(line)
 
     return "\n".join(lines)
+
+
+def first_content_line(clean_text: str) -> str:
+    for line in clean_text.split("\n"):
+        line = line.strip()
+
+        if line:
+            return line
+
+    return ""
+
+
+def clean_symbol(symbol: str | None) -> str | None:
+    if not symbol:
+        return None
+
+    symbol = symbol.strip()
+    symbol = symbol.strip(" -,:.$₹")
+    symbol = re.sub(r"\s+", " ", symbol)
+
+    symbol = re.sub(r"\b\d+\b", "", symbol)
+    symbol = re.sub(r"\s+", " ", symbol).strip()
+
+    if not symbol:
+        return None
+
+    return symbol.upper()
+
+
+def detect_symbol(clean_text: str) -> str | None:
+    line = first_content_line(clean_text)
+
+    if not line:
+        return None
+
+    patterns = [
+        r"^(.+?)\s*[-,]\s*[$₹]?\d",
+        r"^(.+?)\s*[-,]\s*\d",
+        r"^(.+?)\s+[-,]\s*[$₹]?\d",
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, line)
+
+        if match:
+            return clean_symbol(match.group(1))
+
+    pair_match = re.search(
+        r"^([A-Za-z0-9]+)\s*/\s*([A-Za-z0-9]+)",
+        line
+    )
+
+    if pair_match:
+        return clean_symbol(
+            f"{pair_match.group(1)}/{pair_match.group(2)}"
+        )
+
+    return None
 
 
 def detect_action(clean_text: str) -> str | None:
@@ -44,30 +101,28 @@ def detect_action(clean_text: str) -> str | None:
         if re.search(rf"\b{keyword}\b", upper):
             return action
 
+    if "INVESTMENT" in upper:
+        return "BUY"
+
     return None
 
 
-def detect_symbol(clean_text: str) -> str | None:
+def detect_instrument(clean_text: str, symbol: str | None) -> str:
     upper = clean_text.upper()
 
-    action_words = "|".join(ACTION_MAP.keys())
-
-    match = re.search(
-        rf"\b(?:{action_words})\b\s+([A-Z0-9]{2,15})\b",
-        upper,
-    )
-
-    if match:
-        return match.group(1)
-
-    return None
-
-
-def detect_instrument(symbol: str | None) -> str:
     if not symbol:
         return "UNKNOWN"
 
-    if symbol.upper() in CRYPTO_SYMBOLS:
+    if (
+        "/" in symbol
+        or "USDT" in upper
+        or "INR" in upper
+        or "$" in clean_text
+        or "CRYPTO" in upper
+        or "BINANCE" in upper
+        or "WAZIRX" in upper
+        or "COIN" in upper
+    ):
         return "CRYPTO"
 
     return "STOCK"
@@ -77,10 +132,8 @@ def normalize_message(db, message):
     clean_text = normalize_text(message.message_text)
 
     symbol = detect_symbol(clean_text)
-
     action = detect_action(clean_text)
-
-    instrument = detect_instrument(symbol)
+    instrument = detect_instrument(clean_text, symbol)
 
     normalized = (
         db.query(NormalizedMessage)

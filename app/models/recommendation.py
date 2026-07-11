@@ -2,10 +2,11 @@ from __future__ import annotations
 
 from sqlalchemy import (
     Column,
-    Integer,
-    String,
-    Numeric,
     ForeignKey,
+    Integer,
+    JSON,
+    Numeric,
+    String,
     UniqueConstraint,
 )
 
@@ -16,7 +17,6 @@ class Recommendation(Base):
 
     __tablename__ = "recommendations"
 
-
     __table_args__ = (
         UniqueConstraint(
             "message_id",
@@ -24,20 +24,17 @@ class Recommendation(Base):
         ),
     )
 
-
     id = Column(
         Integer,
         primary_key=True,
         index=True
     )
 
-
     message_id = Column(
         Integer,
         ForeignKey("messages.id"),
         nullable=False
     )
-
 
     symbol = Column(String(30))
     action = Column(String(10))
@@ -50,6 +47,8 @@ class Recommendation(Base):
     target1 = Column(Numeric)
     target2 = Column(Numeric)
     target3 = Column(Numeric)
+
+    targets_json = Column(JSON)
 
     pattern = Column(String(100))
     risk = Column(String(30))

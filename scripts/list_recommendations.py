@@ -1,3 +1,6 @@
+import _bootstrap  # noqa: F401
+
+from sqlalchemy.orm import Session
 from app.db.database import SessionLocal
 from app.services.recommendation_query_service import get_all_recommendations
 

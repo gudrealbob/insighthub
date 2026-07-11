@@ -12,6 +12,7 @@ from app.models.source import Source   # noqa: F401  (registers model with Base.
 from app.models.channel import Channel
 from app.models.message import Message  # noqa: F401  (registers model with Base.metadata)
 from app.models.recommendation import Recommendation
+from app.models.market_price import MarketPrice  # noqa: F401
 
 
 # from app.models import Base, Source, Channel, Message, Recommendation
