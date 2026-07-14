@@ -54,7 +54,7 @@ class NormalizedMessage(Base):
     )
 
     parser_status: Mapped[str] = mapped_column(
-        String(20),
+        String(40),
         default="PENDING"
     )
 

@@ -1,4 +1,5 @@
 from app.parsers.recommendation_parser import (
+    OPEN_TARGET_VALUE,
     PARSER_VERSION,
     ParsedMessage,
     ParsedRecommendation,
@@ -7,6 +8,7 @@ from app.parsers.recommendation_parser import (
 )
 
 __all__ = [
+    "OPEN_TARGET_VALUE",
     "PARSER_VERSION",
     "ParsedMessage",
     "ParsedRecommendation",
