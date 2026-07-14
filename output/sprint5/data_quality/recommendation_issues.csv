@@ -1,0 +1,35 @@
+recommendation_id,message_id,channel,symbol,signal_date,severity,issue_type,detail
+2124,1996,chartbankglobal,OM,2024-11-27,ERROR,BUY_TARGET_NOT_ABOVE_ENTRY,Targets at or below entry: [2.0]
+2128,2067,chartbankglobal,NAVITAS SEMICONDUCTOR,2026-05-14,ERROR,BUY_TARGET_NOT_ABOVE_ENTRY,Targets at or below entry: [2.0]
+2097,1776,chartbankglobal,OMG/USDT,2021-03-29,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2098,1912,chartbankglobal,Idex,2024-02-25,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2099,1936,chartbankglobal,Zcash,2024-03-08,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2100,1975,chartbankglobal,NVIDIA,2024-07-17,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2101,1736,chartbankglobal,WALMART,2020-12-29,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2102,1737,chartbankglobal,VISA,2020-12-29,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2103,1740,chartbankglobal,COCA-COLA,2020-12-31,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2104,1741,chartbankglobal,STARBUCKS,2020-12-31,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2105,1747,chartbankglobal,MATIC/USD,2021-01-25,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2106,1752,chartbankglobal,DOGE/INR,2021-02-06,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2107,1759,chartbankglobal,INVESTMENT PICK - CELR/USD,2021-02-14,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2108,1760,chartbankglobal,ONE/USDT,2021-02-15,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2109,1761,chartbankglobal,ONE/USDT,2021-02-19,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2110,1790,chartbankglobal,XRP/INR,2021-04-10,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2111,1804,chartbankglobal,FTM,2021-05-05,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2112,1806,chartbankglobal,HBAR / INR,2021-05-14,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2113,1818,chartbankglobal,LINA .,2021-07-28,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2114,1819,chartbankglobal,RUNE,2021-07-28,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2115,1827,chartbankglobal,SKL,2021-08-14,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2116,1830,chartbankglobal,SAND,2021-08-28,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2117,1948,chartbankglobal,HIGH,2024-04-02,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2118,1949,chartbankglobal,XVG,2024-04-02,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2119,1950,chartbankglobal,ID,2024-04-03,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2120,1954,chartbankglobal,NKN,2024-04-07,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2121,1956,chartbankglobal,VET (VECHAIN),2024-04-11,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2122,1982,chartbankglobal,ORDI .,2024-09-26,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2123,1983,chartbankglobal,TON,2024-09-26,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2124,1996,chartbankglobal,OM,2024-11-27,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2125,2018,chartbankglobal,INTEL CORPORATION,2025-02-11,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2126,2023,chartbankglobal,EVERQUOTE,2025-03-17,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2127,2063,chartbankglobal,REDDIT,2026-05-01,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.
+2128,2067,chartbankglobal,NAVITAS SEMICONDUCTOR,2026-05-14,WARNING,MISSING_PERFORMANCE,No calculated performance fields were found.

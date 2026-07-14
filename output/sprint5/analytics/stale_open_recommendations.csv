@@ -1,0 +1,18 @@
+recommendation_id,message_id,channel_id,channel_name,signal_date,symbol,action,entry_low,entry_high,stop_loss,target1,target2,target3,targets,pattern,risk,lifecycle_status,current_price,current_return_pct,max_return_pct,min_return_pct,target_hit,target_hit_level,target_hit_date,stop_loss_hit,stop_loss_hit_date,days_to_target,days_to_stop_loss,evaluated_through,performance_calculated_at,normalized_text,raw_message_text
+2125,2018,1,chartbankglobal,2025-02-11,INTEL CORPORATION,BUY,21.8,21.8,18.0,,,,[],,,,,,,,False,,,False,,,,,,"Intel corporation - 21.8$
+Can buy now and in dips around 19.
+SL 18$","#Freshview 
+#NYSE
+
+Intel corporation - 21.8$
+
+Can buy now and in dips around 19.
+
+SL 18$"
+2126,2023,1,chartbankglobal,2025-03-17,EVERQUOTE,BUY,28.0,28.0,,60.0,,,[60.0],,,,,,,,False,,,False,,,,,,"Everquote - 28$, 17th March, 2025.
+Buy now and in dips also around 20 for a tgt of 60++","#Freshview 
+#NYSE 
+
+Everquote - 28$, 17th March, 2025.
+
+Buy now and in dips also around 20 for a tgt of 60++"

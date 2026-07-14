@@ -1,0 +1,33 @@
+recommendation_id,message_id,symbol,signal_date,price_row_count,first_price_date,latest_price_date,signal_date_covered,long_business_day_gap_count,has_forward_price_history
+2128,2067,NAVITAS SEMICONDUCTOR,2026-05-14,0,,,False,0,False
+2127,2063,REDDIT,2026-05-01,0,,,False,0,False
+2126,2023,EVERQUOTE,2025-03-17,0,,,False,0,False
+2125,2018,INTEL CORPORATION,2025-02-11,0,,,False,0,False
+2124,1996,OM,2024-11-27,0,,,False,0,False
+2123,1983,TON,2024-09-26,0,,,False,0,False
+2122,1982,ORDI .,2024-09-26,0,,,False,0,False
+2100,1975,NVIDIA,2024-07-17,0,,,False,0,False
+2121,1956,VET (VECHAIN),2024-04-11,0,,,False,0,False
+2120,1954,NKN,2024-04-07,0,,,False,0,False
+2119,1950,ID,2024-04-03,0,,,False,0,False
+2118,1949,XVG,2024-04-02,0,,,False,0,False
+2117,1948,HIGH,2024-04-02,0,,,False,0,False
+2099,1936,Zcash,2024-03-08,0,,,False,0,False
+2098,1912,Idex,2024-02-25,0,,,False,0,False
+2116,1830,SAND,2021-08-28,0,,,False,0,False
+2115,1827,SKL,2021-08-14,0,,,False,0,False
+2114,1819,RUNE,2021-07-28,0,,,False,0,False
+2113,1818,LINA .,2021-07-28,0,,,False,0,False
+2112,1806,HBAR / INR,2021-05-14,0,,,False,0,False
+2111,1804,FTM,2021-05-05,0,,,False,0,False
+2110,1790,XRP/INR,2021-04-10,0,,,False,0,False
+2097,1776,OMG/USDT,2021-03-29,0,,,False,0,False
+2109,1761,ONE/USDT,2021-02-19,0,,,False,0,False
+2108,1760,ONE/USDT,2021-02-15,0,,,False,0,False
+2107,1759,INVESTMENT PICK - CELR/USD,2021-02-14,0,,,False,0,False
+2106,1752,DOGE/INR,2021-02-06,0,,,False,0,False
+2105,1747,MATIC/USD,2021-01-25,0,,,False,0,False
+2104,1741,STARBUCKS,2020-12-31,0,,,False,0,False
+2103,1740,COCA-COLA,2020-12-31,0,,,False,0,False
+2102,1737,VISA,2020-12-29,0,,,False,0,False
+2101,1736,WALMART,2020-12-29,0,,,False,0,False

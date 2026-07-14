@@ -1,0 +1,30 @@
+[
+  {
+    "total_recommendations": 4,
+    "recommendations_with_performance": 0,
+    "open_recommendations": 4,
+    "closed_recommendations": 0,
+    "wins": 0,
+    "losses": 0,
+    "target_hits": 0,
+    "stop_loss_hits": 0,
+    "profitable_recommendations": 0,
+    "unprofitable_recommendations": 0,
+    "win_rate_pct": null,
+    "target_hit_rate_pct": null,
+    "stop_loss_rate_pct": null,
+    "profitable_rate_pct": null,
+    "average_current_return_pct": null,
+    "median_current_return_pct": null,
+    "average_max_return_pct": null,
+    "median_max_return_pct": null,
+    "best_current_return_pct": null,
+    "worst_current_return_pct": null,
+    "best_max_return_pct": null,
+    "average_days_to_target": null,
+    "average_days_to_stop_loss": null,
+    "group_by": "pattern",
+    "group_value": "UNKNOWN",
+    "sample_size_warning": true
+  }
+]

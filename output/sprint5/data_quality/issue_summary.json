@@ -1,0 +1,12 @@
+[
+  {
+    "severity": "ERROR",
+    "issue_type": "BUY_TARGET_NOT_ABOVE_ENTRY",
+    "count": 2
+  },
+  {
+    "severity": "WARNING",
+    "issue_type": "MISSING_PERFORMANCE",
+    "count": 32
+  }
+]

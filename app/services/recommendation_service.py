@@ -3,90 +3,52 @@ from sqlalchemy.exc import IntegrityError
 from app.models.normalized_message import NormalizedMessage
 from app.models.recommendation import Recommendation
 from app.services.parser import parse_recommendation
+from __future__ import annotations
+import json
+from typing import Any
+from sqlalchemy.orm import Session
+from app.parsers.recommendation_parser import ParsedRecommendation
 
 
-def is_valid_recommendation(parsed):
-    required_fields = (
-        parsed.get("symbol"),
-        parsed.get("action"),
-        parsed.get("entry_low"),
-    )
+def save_recommendation(
+    db: Session,
+    message_id: int,
+    parsed: ParsedRecommendation | dict[str, Any],
+) -> Recommendation:
+    """
+    Create or update one recommendation for a message.
 
-    return all(required_fields)
+    This preserves the existing one-recommendation-per-message architecture.
+    """
+    values = parsed.to_dict() if isinstance(parsed, ParsedRecommendation) else parsed
 
-
-def save_recommendation(db, message):
-    existing = (
+    recommendation = (
         db.query(Recommendation)
-        .filter(
-            Recommendation.message_id == message.id
-        )
-        .first()
+        .filter(Recommendation.message_id == message_id)
+        .one_or_none()
     )
-
-    if existing:
-        return existing
-
-    normalized = (
-        db.query(NormalizedMessage)
-        .filter(
-            NormalizedMessage.message_id == message.id
-        )
-        .first()
-    )
-
-    if normalized is None:
-        return None
-
-    parsed = parse_recommendation(
-        clean_text=normalized.clean_text or "",
-        symbol=normalized.symbol,
-        action=normalized.action,
-    )
-
-    if not parsed:
-        normalized.parser_status = "FAILED"
-        db.commit()
-        return None
-
-    if not is_valid_recommendation(parsed):
-        normalized.parser_status = "FAILED"
-        db.commit()
-        return None
-
-    recommendation = Recommendation(
-        message_id=message.id,
-        symbol=parsed["symbol"],
-        action=parsed["action"],
-        entry_low=parsed["entry_low"],
-        entry_high=parsed["entry_high"],
-        stop_loss=parsed["stop_loss"],
-        target1=parsed["target1"],
-        target2=parsed["target2"],
-        target3=parsed["target3"],
-        targets_json=parsed["targets_json"],
-        pattern=parsed["pattern"],
-        risk=parsed["risk"],
-    )
-
-    normalized.parser_status = "SUCCESS"
-
-    try:
+    if recommendation is None:
+        recommendation = Recommendation(message_id=message_id)
         db.add(recommendation)
-        db.commit()
-        db.refresh(recommendation)
 
-        return recommendation
+    recommendation.symbol = values.get("symbol")
+    recommendation.action = values.get("action")
+    recommendation.entry_low = values.get("entry_low")
+    recommendation.entry_high = values.get("entry_high")
+    recommendation.stop_loss = values.get("stop_loss")
+    recommendation.target1 = values.get("target1")
+    recommendation.target2 = values.get("target2")
+    recommendation.target3 = values.get("target3")
+    recommendation.pattern = values.get("pattern")
+    recommendation.risk = values.get("risk")
 
-    except IntegrityError:
-        db.rollback()
+    targets = values.get("targets_json") or {
+        "target_type": "UNSPECIFIED",
+        "targets": [],
+    }
+    recommendation.targets_json = (
+        targets if isinstance(targets, str) else json.dumps(targets, sort_keys=True)
+    )
 
-        existing = (
-            db.query(Recommendation)
-            .filter(
-                Recommendation.message_id == message.id
-            )
-            .first()
-        )
-
-        return existing
+    db.flush()
+    return recommendation

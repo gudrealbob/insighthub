@@ -1,110 +1,91 @@
-import _bootstrap  # noqa: F401
+from __future__ import annotations
 
-from sqlalchemy.orm import Session
+import argparse
+import csv
+from collections import Counter
+from pathlib import Path
+
+from sqlalchemy import func
+
 from app.db.database import SessionLocal
 from app.models.message import Message
 from app.models.normalized_message import NormalizedMessage
-from app.models.recommendation import Recommendation
 
 
-def print_section(title):
-    print("")
-    print("====================================")
-    print(title)
-    print("====================================")
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="Generate parser-quality counts and unresolved-message CSV output."
+    )
+    parser.add_argument(
+        "--output",
+        default="output/parser_quality/parser_unresolved.csv",
+    )
+    return parser
 
 
-def main():
+def main() -> None:
+    args = build_parser().parse_args()
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
     db = SessionLocal()
-
     try:
-        total_messages = db.query(Message).count()
-        total_normalized = db.query(NormalizedMessage).count()
-        total_recommendations = db.query(Recommendation).count()
-
-        failed_normalized = (
-            db.query(NormalizedMessage)
-            .filter(NormalizedMessage.parser_status == "FAILED")
-            .count()
-        )
-
-        missing_symbol = (
-            db.query(NormalizedMessage)
-            .filter(NormalizedMessage.symbol.is_(None))
-            .count()
-        )
-
-        missing_action = (
-            db.query(NormalizedMessage)
-            .filter(NormalizedMessage.action.is_(None))
-            .count()
-        )
-
-        missing_entry = (
-            db.query(NormalizedMessage)
-            .outerjoin(
-                Recommendation,
-                Recommendation.message_id == NormalizedMessage.message_id
-            )
-            .filter(Recommendation.id.is_(None))
-            .count()
-        )
-
-        print_section("Sprint 3 Parser Quality Report")
-
-        print(f"Total messages          : {total_messages}")
-        print(f"Total normalized        : {total_normalized}")
-        print(f"Total recommendations   : {total_recommendations}")
-        print(f"Failed normalized       : {failed_normalized}")
-        print(f"Missing symbol          : {missing_symbol}")
-        print(f"Missing action          : {missing_action}")
-        print(f"No recommendation row   : {missing_entry}")
-
-        success_rate = 0
-
-        if total_messages > 0:
-            success_rate = round(
-                (total_recommendations / total_messages) * 100,
-                2
-            )
-
-        print(f"Recommendation rate     : {success_rate}%")
-
-        print_section("Sample Failed / Not Recommended Messages")
-
         rows = (
-            db.query(
-                Message.id,
-                NormalizedMessage.symbol,
-                NormalizedMessage.action,
-                NormalizedMessage.parser_status,
-                NormalizedMessage.clean_text,
-            )
-            .join(
-                NormalizedMessage,
-                NormalizedMessage.message_id == Message.id
-            )
-            .outerjoin(
-                Recommendation,
-                Recommendation.message_id == Message.id
-            )
-            .filter(Recommendation.id.is_(None))
+            db.query(Message, NormalizedMessage)
+            .join(NormalizedMessage, NormalizedMessage.message_id == Message.id)
             .order_by(Message.id)
-            .limit(25)
             .all()
         )
 
-        for row in rows:
-            print("")
-            print(f"message_id     : {row.id}")
-            print(f"symbol         : {row.symbol}")
-            print(f"action         : {row.action}")
-            print(f"parser_status  : {row.parser_status}")
-            print("clean_text:")
-            print(row.clean_text)
+        status_counts = Counter(normalized.parser_status for _, normalized in rows)
+        print("Parser status counts")
+        for status, count in sorted(status_counts.items()):
+            print(f"{status}: {count}")
 
-        print("")
+        unresolved_statuses = {
+            "UNSUPPORTED_FORMAT",
+            "VALIDATION_FAILED",
+            "MULTIPLE_RECS",
+        }
+        unresolved = [
+            (message, normalized)
+            for message, normalized in rows
+            if normalized.parser_status in unresolved_statuses
+        ]
 
+        with output_path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(
+                handle,
+                fieldnames=[
+                    "message_id",
+                    "channel_id",
+                    "external_message_id",
+                    "message_date",
+                    "parser_status",
+                    "symbol",
+                    "instrument_type",
+                    "action",
+                    "message_text",
+                ],
+            )
+            writer.writeheader()
+            for message, normalized in unresolved:
+                writer.writerow(
+                    {
+                        "message_id": message.id,
+                        "channel_id": message.channel_id,
+                        "external_message_id": message.external_message_id,
+                        "message_date": message.message_date,
+                        "parser_status": normalized.parser_status,
+                        "symbol": normalized.symbol,
+                        "instrument_type": normalized.instrument_type,
+                        "action": normalized.action,
+                        "message_text": message.message_text,
+                    }
+                )
+
+        print(f"Unresolved rows: {len(unresolved)}")
+        print(f"CSV: {output_path}")
     finally:
         db.close()
 

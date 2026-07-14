@@ -1,0 +1,256 @@
+recommendation_id,message_id,channel_id,channel_name,signal_date,symbol,action,entry_low,entry_high,stop_loss,target1,target2,target3,targets,pattern,risk,lifecycle_status,current_price,current_return_pct,max_return_pct,min_return_pct,target_hit,target_hit_level,target_hit_date,stop_loss_hit,stop_loss_hit_date,days_to_target,days_to_stop_loss,evaluated_through,performance_calculated_at,normalized_text,raw_message_text
+2128,2067,1,chartbankglobal,2026-05-14,NAVITAS SEMICONDUCTOR,BUY,18.0,22.0,,2.0,,,[2.0],,,,,,,,False,,,False,,,,,,"Navitas semiconductor - 22$
+Can buy now and in dips also near 18.
+Tgt double.","#Freshview 
+#NYSE 
+
+Navitas  semiconductor - 22$
+
+Can buy now and in dips also near 18. 
+
+Tgt double."
+2127,2063,1,chartbankglobal,2026-05-01,REDDIT,BUY,140.0,164.0,,,,,[],,,,,,,,False,,,False,,,,,,"Reddit - 164$, 1st May, 2026.
+Can buy now and in dips near 140.
+Support 111/120.","#Freshview 
+#NYSE 
+
+Reddit - 164$, 1st May, 2026. 
+
+Can buy now and in dips near 140. 
+
+Support 111/120."
+2126,2023,1,chartbankglobal,2025-03-17,EVERQUOTE,BUY,28.0,28.0,,60.0,,,[60.0],,,,,,,,False,,,False,,,,,,"Everquote - 28$, 17th March, 2025.
+Buy now and in dips also around 20 for a tgt of 60++","#Freshview 
+#NYSE 
+
+Everquote - 28$, 17th March, 2025.
+
+Buy now and in dips also around 20 for a tgt of 60++"
+2125,2018,1,chartbankglobal,2025-02-11,INTEL CORPORATION,BUY,21.8,21.8,18.0,,,,[],,,,,,,,False,,,False,,,,,,"Intel corporation - 21.8$
+Can buy now and in dips around 19.
+SL 18$","#Freshview 
+#NYSE
+
+Intel corporation - 21.8$
+
+Can buy now and in dips around 19.
+
+SL 18$"
+2124,1996,1,chartbankglobal,2024-11-27,OM,BUY,3.7,3.7,,2.0,,,[2.0],,,,,,,,False,,,False,,,,,,"OM - 3.7$, 27th Nov, 2024.
+Can buy for double. 😊","#Freshview 
+#Cryptobull3.0 
+
+OM - 3.7$, 27th Nov, 2024.
+
+Can buy for double. 😊"
+2123,1983,1,chartbankglobal,2024-09-26,TON,BUY,5.8,5.8,,,,,[],,,,,,,,False,,,False,,,,,,"Ton - 5.8$, 26th Sep, 2024.
+Long term investment 👍","#Freshview 
+#Crypto3.0
+
+Ton - 5.8$, 26th Sep, 2024.
+
+Long term investment 👍"
+2122,1982,1,chartbankglobal,2024-09-26,ORDI .,BUY,26.0,26.0,,,,,[],,,,,,,,False,,,False,,,,,,"Ordi 37.5, 26th September, 2024.
+Buy and hold. 😊","#Freshview 
+#Binance
+#Crypto3.0
+
+Ordi 37.5, 26th September, 2024.
+
+Buy and hold. 😊"
+2100,1975,1,chartbankglobal,2024-07-17,NVIDIA,BUY,50.0,50.0,,,,,[],,,,,,,,False,,,False,,,,,,"NVIDIA - 118$, 17th July, 2024.
+Buy 50% now and the remaining qty in dips if comes to 100$","#Freshview 
+#NYSE 
+
+NVIDIA - 118$, 17th July, 2024.
+
+Buy 50% now and the remaining qty in dips if comes to 100$"
+2121,1956,1,chartbankglobal,2024-04-11,VET (VECHAIN),BUY,0.48,0.48,,5.0,,,[5.0],,,,,,,,False,,,False,,,,,,"Vet (Vechain) - 0.48$, 11th April, 2024.
+Buy small qty for 5x.","#Freshview 
+
+Vet (Vechain) - 0.48$, 11th April, 2024. 
+
+Buy small qty for 5x."
+2120,1954,1,chartbankglobal,2024-04-07,NKN,BUY,0.21,0.21,,4.0,,,[4.0],,,,,,,,False,,,False,,,,,,"NkN - 0.21$, 7th April, 2024.
+Buy for 4x return. Available in Wazirx too. 😊","#Freshview 
+
+NkN - 0.21$, 7th April, 2024. 
+
+Buy for 4x return.  Available in Wazirx too. 😊"
+2119,1950,1,chartbankglobal,2024-04-03,ID,BUY,0.93,0.93,,2.0,,,[2.0],BREAKOUT FROM FALLING WEDGE. LET'S BUY SOME ID IN THE SPACE FOR DOUBLE TGT.,,,,,,,False,,,False,,,,,,"ID - 0.93$, 3rd April, 2024.
+Expecting a breakout from falling wedge. Let's buy some ID in the space for double tgt.
+Available in Wazirx also.","#Freshview 
+
+ID - 0.93$, 3rd April, 2024. 
+
+Expecting a breakout from falling wedge. Let's buy some ID in the space for double tgt. 
+
+Available in Wazirx also."
+2118,1949,1,chartbankglobal,2024-04-02,XVG,BUY,0.93,0.93,,5.0,,,[5.0],,,,,,,,False,,,False,,,,,,"XVG - 0.93₹ / 0.01056$
+Available in both wazirx and Binance.
+Buy small qty for 5x.","#Freshview 
+
+XVG - 0.93₹ / 0.01056$
+
+Available in both wazirx and Binance. 
+
+Buy small qty for 5x."
+2117,1948,1,chartbankglobal,2024-04-02,HIGH,BUY,2.5,2.5,,4.5,9.0,,"[4.5, 9.0]","BREAKOUT ANYTIME. BUY FOR A TGT OF 4.5, 9++",,,,,,,False,,,False,,,,,,"High - 2.5$, 2nd April, 2024.
+Ready for a breakout anytime. Buy for a tgt of 4.5, 9++","#Freshview 
+
+High - 2.5$, 2nd April, 2024.
+
+Ready for a breakout anytime. Buy for a tgt of 4.5, 9++"
+2099,1936,1,chartbankglobal,2024-03-08,Zcash,BUY,36.0,36.0,,,,,[],,,,,,,,False,,,False,,,,,,"Zcash - 34.80, 8th March, 2024.
+Beautiful Divergence and one of the underperforming coins. Breakout confirmation on closing above 36. Let's buy for a tgt of 50, 80++","#Freshview 
+
+Zcash - 34.80, 8th March, 2024.
+
+Beautiful Divergence and one of the underperforming coins. Breakout confirmation on closing above 36. Let's buy for a tgt of 50, 80++"
+2098,1912,1,chartbankglobal,2024-02-25,Idex,BUY,0.071,0.071,,0.137,,,[0.137],,,,,,,,False,,,False,,,,,,"Idex - 0.068$, 25th Feb, 2024.
+Breakout above 0.071 and short term tgt 0.137 and long term 0.50$++
+Available in Wazirx also.","#Freshview 
+
+Idex - 0.068$, 25th Feb, 2024.
+
+Breakout above 0.071 and short term tgt 0.137 and long term 0.50$++ 
+
+Available in Wazirx also."
+2116,1830,1,chartbankglobal,2021-08-28,SAND,BUY,0.6,0.77,,2.0,,,[2.0],,,,,,,,False,,,False,,,,,,"Sand - 0.77$ / 58 INR
+Can buy now and in dips till 0.60$.
+Tgt double. Available in Wazirx also.","#Freshview, 28th Aug, 2021.
+
+Sand - 0.77$ / 58 INR
+
+Can buy now and in dips till 0.60$.
+
+Tgt double. Available in Wazirx also."
+2115,1827,1,chartbankglobal,2021-08-14,SKL,BUY,0.36,0.36,,,,,[],,,,,,,,False,,,False,,,,,,"SKL - 0.36$ Can add now and in dips also till 0.30$.
+Investment pick. Tgt open. Available in Binance only.","#Freshview - 14th Aug, 2021
+
+SKL - 0.36$  Can add now and in dips also till 0.30$.  
+
+Investment pick. Tgt open.  Available in Binance only."
+2114,1819,1,chartbankglobal,2021-07-28,RUNE,BUY,4.2,4.2,,,,,[],,,,,,,,False,,,False,,,,,,"Rune - 4.2$, 28th July, 2021.
+Can add now and in dips.
+Investment pick.","#Freshview 
+
+Rune - 4.2$, 28th July, 2021.
+
+Can add now and in dips. 
+
+Investment pick."
+2113,1818,1,chartbankglobal,2021-07-28,LINA .,BUY,28.0,28.0,,,,,[],,,,,,,,False,,,False,,,,,,"Lina 0.04176$, 28th July, 2021.
+Can add now in dips.
+Investment pick.","#Freshview 
+
+Lina 0.04176$, 28th July, 2021.
+
+Can add now in dips. 
+
+Investment pick."
+2112,1806,1,chartbankglobal,2021-05-14,HBAR / INR,BUY,26.6,26.6,,,,,[],,,,,,,,False,,,False,,,,,,"HBAR / INR - 26.60
+Can buy now. Tgt open.
+Don't add more than 5 or 10% of your capital in a single coin.
+HBAR - Exactly behaving like its name !!! 😄","#Freshview , 14th May, 2021. 
+
+HBAR / INR - 26.60
+
+Can buy now. Tgt open.  
+
+Don't add more than 5 or 10% of your capital in a single coin. 
+
+HBAR - Exactly behaving like its name !!! 😄"
+2111,1804,1,chartbankglobal,2021-05-05,FTM,BUY,0.6,0.819,,,,,[],,,,,,,,False,,,False,,,,,,"FTM - 0.819$. Can buy now and in dips till 0.60$.
+Tgt open.","#Freshview, 5th May, 2021
+
+FTM - 0.819$.  Can buy now and in dips till 0.60$. 
+Tgt open."
+2110,1790,1,chartbankglobal,2021-04-10,XRP/INR,BUY,70.0,88.0,,,,,[],,,,,,,,False,,,False,,,,,,"XRP/INR - 88.
+Buy now and in dips near 70 if comes down.
+Tgt open.","#Freshview, 10th April, 2021
+
+XRP/INR - 88.
+
+Buy now and in dips near 70 if comes down. 
+
+Tgt open."
+2097,1776,1,chartbankglobal,2021-03-29,OMG/USDT,BUY,6.4,6.4,,,,,[],,,,,,,,False,,,False,,,,,,"OMG/USDT - 6.15$
+Buy after giving Breakout on crossing above 6.4$
+Tgt open","#Freshview, 29th March, 2021, Crypto
+OMG/USDT - 6.15$
+Buy after giving Breakout on crossing above 6.4$
+Tgt open"
+2109,1761,1,chartbankglobal,2021-02-19,ONE/USDT,BUY,0.03425,0.03425,,,,,[],,,,,,,,False,,,False,,,,,,"One/UsDT - 0.03425$
+Investment pick.
+Hope the remaining 50% shopping is done as per suggested price.
+Average price is 0.02975 and current price 0.03175.
+Back to profit.
+✌️😄","#Freshview, 15th Feb, 2021. 
+
+One/UsDT - 0.03425$
+
+Investment pick.  
+
+Hope the remaining 50% shopping is done as per suggested price. 
+
+Average price is 0.02975 and current price 0.03175. 
+
+Back to profit. 
+
+✌️😄"
+2108,1760,1,chartbankglobal,2021-02-15,ONE/USDT,BUY,0.025,0.03425,,,,,[],,,,,,,,False,,,False,,,,,,"One/UsDT - 0.03425$
+Investment pick. Add 50% now and remaining in dips near 0.025$ & 0.030$","#Freshview, 15th Feb, 2021. 
+
+One/UsDT - 0.03425$
+
+Investment pick.  Add 50% now and remaining in dips near 0.025$ & 0.030$"
+2107,1759,1,chartbankglobal,2021-02-14,INVESTMENT PICK - CELR/USD,BUY,0.0233,0.0233,,,,,[],,,,,,,,False,,,False,,,,,,"Investment pick - CELR/USD - 0.0233
+Add 50% now and remaining in dips.","#Freshview, 14th Feb, 2021
+Investment pick - CELR/USD - 0.0233 
+Add 50% now and remaining in dips."
+2106,1752,1,chartbankglobal,2021-02-06,DOGE/INR,BUY,3.81,3.81,,,,,[],,,,,,,,False,,,False,,,,,,"Doge/INR - 3.81.
+Doge /UsDT - 0.05$
+Investment pick and don't add more than 2500qty.
+It swings very wildly.","#Freshview - 6th Feb, 2021. 
+
+Doge/INR - 3.81. 
+Doge /UsDT - 0.05$
+
+Investment pick and don't add more than 2500qty. 
+
+It swings very wildly."
+2105,1747,1,chartbankglobal,2021-01-25,MATIC/USD,BUY,0.036,0.036,,,,,[],,,,,,,,False,,,False,,,,,,"Matic/USD - 0.036$
+Matic/Inr - 2.8
+Penny Crypto Investment pick.
+Pls invest only small amount. 🙏","#Freshview, 25th Jan, 2021, Crypto. 
+Matic/USD - 0.036$
+Matic/Inr - 2.8
+Penny Crypto Investment pick.  
+Pls invest only small amount.  🙏"
+2104,1741,1,chartbankglobal,2020-12-31,STARBUCKS,BUY,100.0,106.5,,,,,[],,,,,,,,False,,,False,,,,,,"Starbucks, 106.50 - 31st Dec, 2020
+Buy on dips till 100. Tgt open.","#Freshview
+Starbucks, 106.50 - 31st Dec, 2020
+Buy on dips till 100. Tgt open."
+2103,1740,1,chartbankglobal,2020-12-31,COCA-COLA,BUY,52.0,54.66,51.0,56.0,58.0,60.0,"[56.0, 58.0, 60.0]",,,,,,,,False,,,False,,,,,,"Coca-Cola - 54.66, 31st Dec, 2020
+Buy now and in dips till 52. SL 51.
+Can expect 56, 58, 60++","#Freshview 
+
+Coca-Cola - 54.66, 31st Dec, 2020
+
+Buy now and in dips till 52.  SL 51. 
+
+Can expect 56, 58, 60++"
+2102,1737,1,chartbankglobal,2020-12-29,VISA,BUY,208.0,214.75,203.0,218.0,224.0,236.0,"[218.0, 224.0, 236.0, 254.0]",POLE AND PENNANT BREAKOUT.,,,,,,,False,,,False,,,,,,"Visa - 214.75, Pole and pennant breakout.
+Can buy now and in dips till 208 with SL of 203.
+Tgt 218, 224, 236, 254++","#Freshview 
+
+Visa - 214.75, Pole and pennant breakout. 
+
+Can buy now and in dips till 208 with SL of 203.
+
+Tgt 218, 224, 236, 254++"
+2101,1736,1,chartbankglobal,2020-12-29,WALMART,BUY,145.2,145.2,141.0,147.0,150.0,153.0,"[147.0, 150.0, 153.0]",,,,,,,,False,,,False,,,,,,"Walmart - 145.2, 29th Dec, 2020
+Can go long with SL of 141 for a tgt of 147, 150, 153++","#Freshview
+Walmart - 145.2, 29th Dec, 2020
+Can go long with SL of 141 for a tgt of 147, 150, 153++"
